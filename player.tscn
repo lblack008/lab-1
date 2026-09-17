@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bi1ho2eupc2xa"]
+
+[ext_resource type="Script" uid="uid://dlaenbpt4tp40" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="Gradient" id="Gradient_onrkg"]
+offsets = PackedFloat32Array(0, 0.3221154, 1)
+colors = PackedColorArray(0, 0, 1, 1, 0, 0, 0.69411767, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qwqyf"]
+gradient = SubResource("Gradient_onrkg")
+use_hdr = true
+fill_from = Vector2(0, 1)
+
+[node name="Player" type="Sprite2D" unique_id=1980314030]
+position = Vector2(525, 343)
+texture = SubResource("GradientTexture2D_qwqyf")
+script = ExtResource("1_4flbx")
+
+[node name="Timer" type="Timer" parent="." unique_id=724625955]
+one_shot = true
