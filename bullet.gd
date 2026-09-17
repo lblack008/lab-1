@@ -7,7 +7,7 @@ class_name Bullet extends Sprite2D
 func _ready() -> void:
 	pass
 
-#функция для направления полёта пули
+#функция для настройки направления полёта пули
 func _process(delta: float) -> void:
 	position += Vector2.UP.rotated(rotation + PI/2) * speed_of_flight * delta 
 
