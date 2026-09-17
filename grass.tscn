@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d0ofryttfb4hq"]
+
+[ext_resource type="Script" uid="uid://br1e227m86kep" path="res://grass.gd" id="1_2qnaq"]
+
+[sub_resource type="Gradient" id="Gradient_mti6b"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4kxuq"]
+gradient = SubResource("Gradient_mti6b")
+fill_from = Vector2(0.0017064846, 1)
+
+[node name="Grass" type="Node2D" unique_id=1593442573]
+script = ExtResource("1_2qnaq")
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=191051508]
+position = Vector2(578, 324)
+scale = Vector2(18.71875, 10.78125)
+texture = SubResource("GradientTexture2D_4kxuq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1992317082]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=611163352]
+position = Vector2(177, 150.00002)
+scale = Vector2(1.2385929, 1.2754914)
+polygon = PackedVector2Array(155.01463, -147.3942, 284.4627, -140.21112, 578.8827, -123.87385, 808.1752, -110.54565, 792.83514, 415.52612, -170.3546, 409.25403, -159.85883, -130.14594, 179.23564, -134.85, 192.9609, -221.09128, -306, -234, -303, 540, 995, 519, 998, -274, 581, -268, 134.83041, -214.03517)
