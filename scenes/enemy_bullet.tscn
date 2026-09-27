@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ps6kvdwp3hkq"]
+
+[ext_resource type="PackedScene" uid="uid://ctnvv7o2dra57" path="res://scenes/bullet.tscn" id="1_qx7rs"]
+[ext_resource type="Script" uid="uid://bnscqu02yxtrn" path="res://scripts/enemy_bullet.gd" id="2_38r62"]
+
+[node name="Bullet" unique_id=110245924 instance=ExtResource("1_qx7rs")]
+script = ExtResource("2_38r62")
+
+[node name="Area2D" parent="." index="0" unique_id=1423996727]
+collision_layer = 2
+collision_mask = 29

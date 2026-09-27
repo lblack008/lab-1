@@ -1,20 +1,17 @@
 class_name Player extends Sprite2D
 
-#переменная скорости игрока
+#скорость игрока
 @export var speed : int = 500
-#переменная времени перезарядки выстрелов
+#время перезарядки выстелов
 @export var cooldown_in_seconds : float = 0.2
-#переменная самой пули 
-const BULLET = preload("uid://ctnvv7o2dra57")
+#здоровье игрока
+@export var health : int = 100000
+#пуля 
+const BULLET = preload("uid://2f8e62bsutn0")
 #таймер для перезарядки
 @onready var shoot_cooldown_timer : Timer = $Timer
 
-#функция, в которой запускается автостарт таймера перезарядки таймера
-func _ready() -> void:
-	shoot_cooldown_timer.autostart = true
-	pass 
-
-#функция для взаимодействия с перемещением игрока 
+#движение игрока по полю
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_up"):
 		position.y -= speed * delta
@@ -27,12 +24,14 @@ func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 
 
-#функция для выполнения действий в зависимости от ввода 
+#реализация отклика кнопок на действия выхода из игры или выстрела 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
+		#если нажата кнопка Esc - выход из игры
 		if event.is_pressed() and event.keycode == KEY_ESCAPE:
 			get_tree().quit()
 	if event is InputEventKey:
+		#если нажата кнока Space - выстрел
 		if event.is_pressed() and event.is_action("shoot"):
 			if shoot_cooldown_timer.is_stopped():
 				var bullet_instance = BULLET.instantiate()
@@ -40,4 +39,14 @@ func _input(event: InputEvent) -> void:
 				bullet_instance.position = position
 				bullet_instance.rotation = rotation
 				shoot_cooldown_timer.start(cooldown_in_seconds)
-			
+
+#получение урона
+func take_damage(damage: int) -> void:
+	health -= damage
+	#если здоровье закончилось - игра заканчивается
+	if health <= 0:
+		get_tree().quit()
+
+#заглушка
+func _ready() -> void:
+	pass 

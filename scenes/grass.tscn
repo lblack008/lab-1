@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://d0ofryttfb4hq"]
+
+[ext_resource type="Script" uid="uid://br1e227m86kep" path="res://scripts/grass.gd" id="1_e1kak"]
+[ext_resource type="PackedScene" uid="uid://b1xjs4qo201ss" path="res://scenes/trap.tscn" id="2_yarb5"]
+[ext_resource type="PackedScene" uid="uid://xpjcjlupxdhr" path="res://scenes/box.tscn" id="3_3kunl"]
+
+[sub_resource type="Gradient" id="Gradient_mti6b"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4kxuq"]
+gradient = SubResource("Gradient_mti6b")
+fill_from = Vector2(0.0017064846, 1)
+
+[node name="Grass" type="Node2D" unique_id=1593442573]
+script = ExtResource("1_e1kak")
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=191051508]
+position = Vector2(578, 324)
+scale = Vector2(18.71875, 10.78125)
+texture = SubResource("GradientTexture2D_4kxuq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1992317082]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=611163352]
+position = Vector2(177, 150.00002)
+scale = Vector2(1.2385929, 1.2754914)
+polygon = PackedVector2Array(155.01463, -147.3942, 284.4627, -140.21112, 578.8827, -123.87385, 808.1752, -110.54565, 792.83514, 415.52612, -170.3546, 409.25403, -159.85883, -130.14594, 179.23564, -134.85, 192.9609, -221.09128, -306, -234, -303, 540, 995, 519, 998, -274, 581, -268, 134.83041, -214.03517)
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1575962026]
+wait_time = 3.0
+autostart = true
+
+[node name="Trap" parent="." unique_id=1991795393 instance=ExtResource("2_yarb5")]
+position = Vector2(920, 231)
+
+[node name="Trap2" parent="." unique_id=742071864 instance=ExtResource("2_yarb5")]
+position = Vector2(229, 83)
+
+[node name="Trap3" parent="." unique_id=1140106203 instance=ExtResource("2_yarb5")]
+position = Vector2(1029, 543)
+
+[node name="Box" parent="." unique_id=300542311 instance=ExtResource("3_3kunl")]
+position = Vector2(387, 566)
+
+[node name="Box2" parent="." unique_id=183532112 instance=ExtResource("3_3kunl")]
+position = Vector2(808, 519)
+
+[node name="Box3" parent="." unique_id=1032287268 instance=ExtResource("3_3kunl")]
+position = Vector2(839, 117)
+
+[node name="Box4" parent="." unique_id=2102021588 instance=ExtResource("3_3kunl")]
+position = Vector2(126, 218)
+
+[node name="Trap4" parent="." unique_id=128535909 instance=ExtResource("2_yarb5")]
+position = Vector2(644, 61)
+
+[node name="Trap5" parent="." unique_id=1873592410 instance=ExtResource("2_yarb5")]
+position = Vector2(120, 326)
+polygon = PackedVector2Array(1, 62, 62.207687, 61.866333, 28.757019, -0.9390001, 17.292969, 25.055756)
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

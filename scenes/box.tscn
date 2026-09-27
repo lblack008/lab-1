@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://xpjcjlupxdhr"]
+
+[ext_resource type="Script" uid="uid://b5jxvrupxw6qx" path="res://scripts/box.gd" id="1_3inec"]
+
+[sub_resource type="Gradient" id="Gradient_3inec"]
+colors = PackedColorArray(0, 0, 0, 1, 0.5921569, 0.28627452, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3inec"]
+gradient = SubResource("Gradient_3inec")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kunl"]
+size = Vector2(66, 66)
+
+[node name="Box" type="Sprite2D" unique_id=300542311]
+texture = SubResource("GradientTexture2D_3inec")
+script = ExtResource("1_3inec")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=968554612]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=787413706]
+shape = SubResource("RectangleShape2D_3kunl")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0ofryttfb4hq"]
 
-[ext_resource type="Script" uid="uid://br1e227m86kep" path="res://grass.gd" id="1_2qnaq"]
+[ext_resource type="Script" uid="uid://br1e227m86kep" path="res://scripts/grass.gd" id="1_e1kak"]
 
 [sub_resource type="Gradient" id="Gradient_mti6b"]
 colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 1)
@@ -10,7 +10,7 @@ gradient = SubResource("Gradient_mti6b")
 fill_from = Vector2(0.0017064846, 1)
 
 [node name="Grass" type="Node2D" unique_id=1593442573]
-script = ExtResource("1_2qnaq")
+script = ExtResource("1_e1kak")
 
 [node name="Grass" type="Sprite2D" parent="." unique_id=191051508]
 position = Vector2(578, 324)

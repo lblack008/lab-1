@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b1xjs4qo201ss"]
+
+[ext_resource type="Script" uid="uid://vfuoiritcxpj" path="res://scripts/trap.gd" id="1_npg1n"]
+
+[sub_resource type="Gradient" id="Gradient_ykdm6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4kxuq"]
+gradient = SubResource("Gradient_ykdm6")
+fill_from = Vector2(1, 1)
+
+[node name="Trap" type="Polygon2D" unique_id=1991795393]
+texture = SubResource("GradientTexture2D_4kxuq")
+polygon = PackedVector2Array(1, 62, 62.207687, 61.866333, 28.757019, -0.9390001)
+uv = PackedVector2Array(0.76768494, 60.501, 62.207687, 61.866333, 28.757019, -0.9390001)
+script = ExtResource("1_npg1n")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1011939460]
+collision_layer = 16
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=971964205]
+polygon = PackedVector2Array(0, 61, 27, -3, 63, 60, -4, 62)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
